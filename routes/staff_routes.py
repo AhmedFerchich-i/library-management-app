@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from typing import Optional
 
-staffMemberRouter = APIRouter(prefix="/staff members")
+staffMemberRouter = APIRouter(prefix="/staff_members")
 
 @staffMemberRouter.get("/")
 async def get_all_staff_members( ):
