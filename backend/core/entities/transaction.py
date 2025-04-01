@@ -1,15 +1,13 @@
-
-
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Literal
+@dataclass
 class Transactions():
-    def __init__(self):
-        pass
-    def create_rent_transaction(self):
-        pass
-    def create_return_transaction(self):
-        pass
-    def get_transaction_by_book(self):
-        pass
-    def get_transaction_by_user(self):
-        pass
-    def get_transaction_by_date(self):
-        pass
+    user_id:int
+    copy_id:int
+    time:datetime
+    action:Literal['borrow','return']
+
+    def __post_init__(self):
+        if self.action  not in {'borrow','return'}:
+            raise ValueError(f'invalid action : {self.action}')
